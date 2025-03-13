@@ -4,8 +4,7 @@ pipeline {
     environment {
         AZURE_USER = "azureuser"                      // Your Azure VM username (check with `whoami`)
         AZURE_HOST = "4.247.23.206"                   // Your Azure VM IP
-        APP_DIR = "Nandini
-/home/Nandini"               // Corrected app directory path
+        APP_DIR = "Nandini/home/Nandini"               // Corrected app directory path
         APP_PORT = "5000"                             // Flask application port
     }
 
