@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-app = Flask(_name_)
+app = Flask(__name__)  # Removed extra indentation
 
 @app.route("/")
 def home():
@@ -13,8 +13,9 @@ def submit():
 
     if not (name and email):
         return "Name and email are required!", 400
-    
+
     return render_template('success.html', name=name)
 
-if _name_ == "_main_":
+# Fixed the typo in __name__ and __main__
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
