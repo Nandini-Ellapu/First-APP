@@ -21,12 +21,12 @@ pipeline {
                 script {
                     echo "Copying updated application files to Azure..."
                     sh '''
-                    scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/azure.pem -r app/main.py app/templates Nandini@4.247.23.206:/home/azureuser/First-APP/app
+                    scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/azure.pem -r app/main.py app/templates azureuser@52.172.25.118:/home/azureuser/First-APP/app
                     '''
 
                     echo "Restarting application on Azure..."
                     sh '''
-                    ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/azure.pem azureuser@4.247.23.206 <<EOF
+                    ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/azure.pem azureuser@52.172.25.118 <<EOF
                     sudo pkill -f gunicorn || echo "Gunicorn process not found"
                     cd /home/azureuser/First-APP/app
                     source venv/bin/activate
